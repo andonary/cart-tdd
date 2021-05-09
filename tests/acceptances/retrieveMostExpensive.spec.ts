@@ -1,5 +1,5 @@
-import {retrieveMostExpensive} from "../src/useCase/retrieveMostExpensive.useCase";
-import {IProduct, Product} from "../src/models/product";
+import {retrieveMostExpensive} from "../../src/useCase/retrieveMostExpensive.useCase";
+import {IProduct, Product} from "../../src/models/product";
 
 describe(`Scénario: Je souhaite extraire le produit le plus cher de mon panier`, () => {
     const cart: IProduct[] = [

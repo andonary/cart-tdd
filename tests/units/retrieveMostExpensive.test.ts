@@ -1,7 +1,7 @@
-import {retrieveMostExpensive} from "../src/useCase/retrieveMostExpensive.useCase";
-import {IProduct, Product} from "../src/models/product";
+import {retrieveMostExpensive} from "../../src/useCase/retrieveMostExpensive.useCase";
+import {IProduct, Product} from "../../src/models/product";
 
-describe('retrieveMostExpensive', () => {
+describe('TU: retrieveMostExpensive', () => {
     test('Pour un panier vide, je suis averti que cela ne marche pas', () => {
         try {
             retrieveMostExpensive([]);
