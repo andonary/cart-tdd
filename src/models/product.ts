@@ -1,13 +1,8 @@
-export interface IProduct {
-    price: number;
-    name: string
-}
-
-export class Product implements IProduct {
+export class Product {
     name: string;
     price: number;
 
-    constructor(newProduct: Partial<IProduct>) {
+    constructor(newProduct: Partial<Product>) {
         Object.assign(this, newProduct);
     }
 }
