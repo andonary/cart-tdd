@@ -1,6 +1,6 @@
 export class Product {
-    name: string;
-    price: number;
+    readonly name: string;
+    readonly price: number;
 
     constructor(newProduct: Partial<Product>) {
         Object.assign(this, newProduct);

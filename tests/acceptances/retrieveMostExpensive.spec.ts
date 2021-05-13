@@ -1,16 +1,17 @@
 import {retrieveMostExpensive} from "../../src/useCase/retrieveMostExpensive.useCase";
 import {Product} from "../../src/models/product";
+import {Cart} from "../../src/models/cart";
 
 describe(`Scénario: Je souhaite extraire le produit le plus cher de mon panier`, () => {
-    const cart: Product[] = [
+    const cart: Cart = new Cart([
         new Product({name: 'house', price: 50}),
         new Product({name: 'cable', price: 29}),
         new Product({name: 'iphone', price: 1200})
-    ];
+    ]);
     let mostExpensive: Product;
 
     test('Given: Pour un panier donné', () => {
-        expect(cart.length).toEqual(3);
+        expect(cart.getAll().length).toEqual(3);
     });
 
     test(`When: j'action le vérificateur de prix le plus cher`, async () => {
