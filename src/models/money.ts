@@ -3,7 +3,7 @@ import {Currency} from "./currency";
 
 export class Money implements ValueObject {
     private readonly amount: number;
-    private readonly currency: string;
+    private readonly currency: Currency;
 
     constructor(price: number, currency: Currency = Currency.euro) {
         this.amount = price;
