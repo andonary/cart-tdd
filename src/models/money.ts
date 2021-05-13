@@ -1,10 +1,11 @@
 import {ValueObject} from "./core/valueObject";
+import {Currency} from "./currency";
 
 export class Money implements ValueObject {
     private readonly amount: number;
     private readonly currency: string;
 
-    constructor(price: number, currency: string = 'EUR') {
+    constructor(price: number, currency: Currency = Currency.euro) {
         this.amount = price;
         this.currency = currency;
     }
