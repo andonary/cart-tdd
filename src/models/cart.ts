@@ -11,7 +11,11 @@ export class Cart implements Aggregate<Product> {
 
     retrieveMostExpensive(): Product {
         const _cart = this.listProducts;
-        _cart.sort((a, b) => b.price - a.price);
+        _cart.sort((a, b) => {
+            if (b.isGreaterOrEqualsThan(a)) return 1;
+            if (a.isGreaterOrEqualsThan(b)) return -1;
+            return 0;
+        });
         return _cart[0];
     }
 }
