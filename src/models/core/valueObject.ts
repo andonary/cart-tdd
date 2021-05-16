@@ -1,3 +1,5 @@
-export interface ValueObject {
-    isGreaterOrEqualsThan(vo: this): boolean;
+export abstract class ValueObject {
+    protected isGreaterOrEqualsThan(vo: this): boolean {
+        throw new Error('Not Implemented Yet! 🚧🚧🚧');
+    }
 }
