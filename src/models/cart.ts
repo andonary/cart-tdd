@@ -1,8 +1,9 @@
 import {Product} from "./product";
 import {Aggregate} from "./core/aggregate";
 
-export class Cart implements Aggregate<Product> {
+export class Cart extends Aggregate<Product[]> {
     constructor(private listProducts: Product[] = []) {
+        super();
     }
 
     getAll(): Product[] {

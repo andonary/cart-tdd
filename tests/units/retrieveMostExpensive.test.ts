@@ -15,7 +15,7 @@ describe('TU: retrieveMostExpensive', () => {
     const testProductionCode = async (cart: Cart, mostExpensive: Product) => {
         const _mostExpensive: Product = await retrieveMostExpensive(cart);
         expect(_mostExpensive).toEqual(mostExpensive);
-    }
+    };
 
     test('Pour un panier contenant un seul article, celui-ci est retourné', async () => {
         const playstation5: Product = new Product({name: 'PS5', price: 400});
