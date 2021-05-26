@@ -1,25 +1,18 @@
-import {retrieveMostExpensive} from "../../src/useCase/retrieveMostExpensive.useCase";
-import {Product} from "../../src/models/product";
-import {Cart} from "../../src/models/cart";
-import {Money} from "../../src/models/money";
+import {RetrieveMostExpensiveUseCase} from "../../src/useCase/retrieveMostExpensive.useCase";
 
 describe(`Scénario: Je souhaite extraire le produit le plus cher de mon panier`, () => {
-    const cart: Cart = new Cart([
-        new Product({name: 'house', price: 50}),
-        new Product({name: 'cable', price: 29}),
-        new Product({name: 'iphone', price: 1200})
-    ]);
-    let mostExpensive: Product;
+    test('Pour un panier contenant plusieurs produit, je retrouve le produit le plus cher', async () => {
+        // Arrange
+        const retriever = new RetrieveMostExpensiveUseCase();
+        retriever.createProduct({name: 'house', price: 50});
+        retriever.createProduct({name: 'cable', price: 29});
+        const iphone = retriever.createProduct({name: 'iphone', price: 1200});
+        retriever.fillCart();
 
-    test('Given: Pour un panier donné', () => {
-        expect(cart.getAll().length).toEqual(3);
-    });
+        // Act
+        const mostExpensive = await retriever.execute();
 
-    test(`When: j'action le vérificateur de prix le plus cher`, async () => {
-        mostExpensive = await retrieveMostExpensive(cart);
-    });
-
-    test('Then: je retrouve le produit le plus cher de mon panier', () => {
-        expect(mostExpensive?.getPrice()).toEqual(new Money(1200).getPrice());
+        // Assert
+        expect(mostExpensive).toEqual(iphone);
     });
 });
