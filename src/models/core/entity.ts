@@ -6,8 +6,4 @@ export abstract class Entity<T> {
     constructor(id?: string) {
         this.id = new UniqueId(id);
     }
-
-    getId() {
-        return this.id.getId();
-    }
 }

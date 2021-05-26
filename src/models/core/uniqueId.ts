@@ -6,8 +6,4 @@ export class UniqueId {
     constructor(id?: string) {
         this.id = id || uuidv4();
     }
-
-    getId() {
-        return this.id;
-    }
 }

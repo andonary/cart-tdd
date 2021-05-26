@@ -33,6 +33,8 @@ describe('TU: retrieveMostExpensive', () => {
         // Arrange
         const macBookPro = retriever.createProduct({name: 'MacBookPro', price: 3000});
         const chromeBook = retriever.createProduct({name: 'Asus ChromeBook', price: 500});
+        const piano = retriever.createProduct({name: 'Yamaha Piano', price: 1500});
+        const figurine = retriever.createProduct({name: 'Rare figurine', price: 1500});
         retriever.fillCart();
 
         // Act
