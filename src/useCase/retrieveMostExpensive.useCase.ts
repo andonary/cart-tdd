@@ -1,8 +1,10 @@
 import {Product} from "../models/product";
 import {Cart} from "../models/cart";
+import {Exception} from "../models/core/exception";
+import {ErrorMessage} from "../models/errorMessage";
 
 export class RetrieveMostExpensiveUseCase {
-    private cart: Cart;
+    private cart: Cart = new Cart();
     private listProduct: Product[] = [];
 
     constructor() {
@@ -19,7 +21,7 @@ export class RetrieveMostExpensiveUseCase {
     }
 
     async execute(): Promise<Product> {
-        if (!this.cart.getAll().length) throw new Error();
+        if (!this.cart.getAll().length) throw new Exception(ErrorMessage.cartEmpty);
         return Promise.resolve(this.cart.retrieveMostExpensive());
     }
 }

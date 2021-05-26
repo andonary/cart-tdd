@@ -1,4 +1,5 @@
 import {RetrieveMostExpensiveUseCase} from "../../src/useCase/retrieveMostExpensive.useCase";
+import {ErrorMessage} from "../../src/models/errorMessage";
 
 describe('TU: retrieveMostExpensive', () => {
     let retriever;
@@ -12,7 +13,7 @@ describe('TU: retrieveMostExpensive', () => {
             await retriever.execute();
             fail();
         } catch (e) {
-            expect(e).toBeDefined();
+            expect(e.message).toEqual(ErrorMessage.cartEmpty);
         }
     });
 
