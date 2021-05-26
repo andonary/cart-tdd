@@ -29,10 +29,10 @@ describe('TU: retrieveMostExpensive', () => {
         expect(mostExpensive).toEqual(playstation5);
     });
 
-    test('Pour un panier contenant deux articles, le plus cher est retourné', async () => {
+    test('Pour un panier contenant plusieurs articles, le plus cher est retourné', async () => {
         // Arrange
-        const macBookPro = retriever.createProduct({name: 'MacBookPro', price: 3000});
         const chromeBook = retriever.createProduct({name: 'Asus ChromeBook', price: 500});
+        const macBookPro = retriever.createProduct({name: 'MacBookPro', price: 3000});
         const piano = retriever.createProduct({name: 'Yamaha Piano', price: 1500});
         const figurine = retriever.createProduct({name: 'Rare figurine', price: 1500});
         retriever.fillCart();
