@@ -1,5 +1,5 @@
 import {Product} from "./product";
-import {Aggregate} from "./core/aggregate";
+import {Aggregate} from "../tactic/aggregate";
 
 export class Cart extends Aggregate<Product[]> {
     constructor(private listProducts: Product[] = []) {

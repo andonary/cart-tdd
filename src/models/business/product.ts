@@ -1,5 +1,5 @@
 import {Money} from "./money";
-import {Aggregate} from "./core/aggregate";
+import {Aggregate} from "../tactic/aggregate";
 
 interface ProductProps {
     id: string;

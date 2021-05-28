@@ -1,4 +1,4 @@
-import {ValueObject} from "./core/valueObject";
+import {ValueObject} from "../tactic/valueObject";
 import {Currency} from "./currency";
 
 export class Money extends ValueObject {

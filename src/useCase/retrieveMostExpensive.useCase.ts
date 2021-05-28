@@ -1,7 +1,7 @@
-import {Product} from "../models/product";
-import {Cart} from "../models/cart";
-import {Exception} from "../models/core/exception";
-import {ErrorMessage} from "../models/errorMessage";
+import {Product} from "../models/business/product";
+import {Cart} from "../models/business/cart";
+import {Exception} from "../models/application/exception";
+import {ErrorMessage} from "../models/application/errorMessage";
 
 export class RetrieveMostExpensiveUseCase {
     private cart: Cart = new Cart();

@@ -1,5 +1,5 @@
 import {RetrieveMostExpensiveUseCase} from "../../src/useCase/retrieveMostExpensive.useCase";
-import {ErrorMessage} from "../../src/models/errorMessage";
+import {ErrorMessage} from "../../src/models/application/errorMessage";
 
 describe('TU: retrieveMostExpensive', () => {
     let retriever;
