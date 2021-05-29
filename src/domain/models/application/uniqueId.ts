@@ -2,18 +2,18 @@ import { v4 as uuidv4 } from 'uuid';
 import {ValueObject} from "../tactic/valueObject";
 
 export class UniqueId extends ValueObject {
-    private readonly id: string;
+    private readonly value: string;
 
     constructor(id?: string) {
         super();
         if (id && typeof id === 'string') {
-            this.id = id;
+            this.value = id;
         } else {
-            this.id = uuidv4();
+            this.value = uuidv4();
         }
     }
 
     getId(): string {
-        return this.id;
+        return this.value;
     }
 }
