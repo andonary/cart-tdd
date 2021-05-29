@@ -19,7 +19,7 @@ describe('TU: generate unique product', () => {
         const product: Product = generator.execute({name: 'gameboy'});
 
         // Assert
-        expect(product.name).toEqual('gameboy')
+        expect(product.retrieveName()).toEqual('gameboy')
     });
 
     test('Lorsque je génère deux produits gameboy, les deux me sont retourné et ne sont pas identifié comme étant le même produit', () => {
@@ -44,7 +44,7 @@ describe('TU: generate unique product', () => {
         const product: Product = generator.execute();
 
         // Assert
-        expect(product.name).toEqual('ipad');
+        expect(product.retrieveName()).toEqual('ipad');
     });
 
     test('Lorsque je génère un produit sans input, celui-ci est généré à partir de ma liste de produit de référence contenant seulement un amazon echo', () => {
@@ -58,7 +58,7 @@ describe('TU: generate unique product', () => {
         const product: Product = generator.execute();
 
         // Assert
-        expect(product.name).toEqual('amazon echo');
+        expect(product.retrieveName()).toEqual('amazon echo');
     });
 
     test('Lorsque je génère un produit sans input, celui-ci est généré aléatoirement à partir de ma liste de produit de référence contenant un ipad et un gameboy', () => {
@@ -78,8 +78,8 @@ describe('TU: generate unique product', () => {
         const productTwo: Product = generator.execute();
 
         // Assert
-        expect(productOne.name).toMatch(/ipad|gameboy/);
-        expect(productTwo.name).toMatch(/ipad|gameboy/);
-        expect(productOne.name).not.toEqual(productTwo.name);
+        expect(productOne.retrieveName()).toMatch(/ipad|gameboy/);
+        expect(productTwo.retrieveName()).toMatch(/ipad|gameboy/);
+        expect(productOne.retrieveName()).not.toEqual(productTwo.retrieveName());
     });
 });

@@ -20,4 +20,8 @@ export class Product extends Aggregate<Product> {
     isGreaterOrEqualsThan(product: Product): boolean {
         return this.price.isGreaterOrEqualsThan(product.price);
     }
+
+    retrieveName() {
+        return this.name;
+    }
 }
