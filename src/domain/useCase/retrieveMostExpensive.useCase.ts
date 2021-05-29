@@ -1,10 +1,10 @@
 import {Product} from "../models/business/product";
-import {Cart} from "../models/business/cart";
+import {Vault} from "../models/business/vault";
 import {Exception} from "../models/application/exception";
 import {ErrorMessage} from "../models/application/errorMessage";
 
 export class RetrieveMostExpensiveUseCase {
-    private cart: Cart = new Cart();
+    private vault: Vault = new Vault();
     private listProduct: Product[] = [];
 
     constructor() {
@@ -16,12 +16,12 @@ export class RetrieveMostExpensiveUseCase {
         return _newProduct;
     }
 
-    fillCart() {
-        this.cart = new Cart(this.listProduct);
+    fillVault() {
+        this.vault = new Vault(this.listProduct);
     }
 
     async execute(): Promise<Product> {
-        if (!this.cart.getAll().length) throw new Exception(ErrorMessage.cartEmpty);
-        return Promise.resolve(this.cart.retrieveMostExpensive());
+        if (!this.vault.getAll().length) throw new Exception(ErrorMessage.cartEmpty);
+        return Promise.resolve(this.vault.retrieveMostExpensive());
     }
 }

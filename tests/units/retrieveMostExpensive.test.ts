@@ -2,7 +2,7 @@ import {RetrieveMostExpensiveUseCase} from "../../src/domain/useCase/retrieveMos
 import {ErrorMessage} from "../../src/domain/models/application/errorMessage";
 
 describe('TU: retrieveMostExpensive', () => {
-    let retriever;
+    let retriever: RetrieveMostExpensiveUseCase;
 
     beforeEach(() => {
         retriever = new RetrieveMostExpensiveUseCase();
@@ -20,7 +20,7 @@ describe('TU: retrieveMostExpensive', () => {
     test('Pour un panier contenant un seul article, celui-ci est retourné', async () => {
         // Arrange
         const playstation5 = retriever.createProduct({name: 'PS5', price: 400});
-        retriever.fillCart();
+        retriever.fillVault();
 
         // Act
         const mostExpensive = await retriever.execute();
@@ -35,7 +35,7 @@ describe('TU: retrieveMostExpensive', () => {
         const macBookPro = retriever.createProduct({name: 'MacBookPro', price: 3000});
         const piano = retriever.createProduct({name: 'Yamaha Piano', price: 1500});
         const figurine = retriever.createProduct({name: 'Rare figurine', price: 1500});
-        retriever.fillCart();
+        retriever.fillVault();
 
         // Act
         const mostExpensive = await retriever.execute();

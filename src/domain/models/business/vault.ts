@@ -1,7 +1,7 @@
 import {Product} from "./product";
 import {Aggregate} from "../tactic/aggregate";
 
-export class Cart extends Aggregate<Product[]> {
+export class Vault extends Aggregate<Product[]> {
     constructor(private listProducts: Product[] = []) {
         super();
     }
@@ -11,12 +11,12 @@ export class Cart extends Aggregate<Product[]> {
     }
 
     retrieveMostExpensive(): Product {
-        const _cart = this.listProducts;
-        _cart.sort((a, b) => {
+        const _vault = this.listProducts;
+        _vault.sort((a, b) => {
             if (b.isGreaterOrEqualsThan(a)) return 1;
             if (a.isGreaterOrEqualsThan(b)) return -1;
             return 0;
         });
-        return _cart[0];
+        return _vault[0];
     }
 }
