@@ -15,7 +15,7 @@ export class VaultService {
         this.vault = new Vault(this.listProduct);
     }
 
-    retrieveVault() {
+    retrieveVault(): Vault {
         return this.vault;
     }
 }
