@@ -12,6 +12,6 @@ export abstract class Entity<T> {
     }
 
     getId(): string {
-        return this.id.getId();
+        return this.id.getValue();
     }
 }

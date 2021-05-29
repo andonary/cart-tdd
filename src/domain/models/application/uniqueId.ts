@@ -2,8 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import {ValueObject} from "../tactic/valueObject";
 
 export class UniqueId extends ValueObject {
-    private readonly value: string;
-
     constructor(id?: string) {
         super();
         if (id && typeof id === 'string') {
@@ -13,7 +11,7 @@ export class UniqueId extends ValueObject {
         }
     }
 
-    getId(): string {
-        return this.value;
+    getValue(): any {
+        return super.getValue();
     }
 }
