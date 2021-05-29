@@ -66,9 +66,11 @@ describe('TU: generate unique product', () => {
 
     test('Lorsque je génère un produit sans input, celui-ci est généré aléatoirement à partir de ma liste de produit de référence contenant un ipad et un gameboy', async () => {
         // Arrange
+        const ipad = new ProductReference({name: 'ipad'});
+        const gameboy = new ProductReference({name: 'gameboy'});
         const listProductReference = [
-            new ProductReference({name: 'ipad'}),
-            new ProductReference({name: 'gameboy'})
+            ipad,
+            gameboy
         ];
         repository.feedWith(listProductReference);
 
@@ -82,5 +84,7 @@ describe('TU: generate unique product', () => {
         expect(productOne.retrieveName()).toMatch(/ipad|gameboy/);
         expect(productTwo.retrieveName()).toMatch(/ipad|gameboy/);
         expect(productOne.retrieveName()).not.toEqual(productTwo.retrieveName());
+        expect(ipad.equals(productOne)).toBeFalsy();
+        expect(gameboy.equals(productTwo)).toBeFalsy();
     });
 });

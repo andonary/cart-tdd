@@ -6,6 +6,14 @@ export class UniqueId extends ValueObject {
 
     constructor(id?: string) {
         super();
-        this.id = id || uuidv4();
+        if (id && typeof id === 'string') {
+            this.id = id;
+        } else {
+            this.id = uuidv4();
+        }
+    }
+
+    getId(): string {
+        return this.id;
     }
 }

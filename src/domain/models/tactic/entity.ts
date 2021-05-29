@@ -8,6 +8,10 @@ export abstract class Entity<T> {
     }
 
     equals(otherEntity: Entity<T>): boolean {
-        return this.id === otherEntity.id;
+        return this.getId() === otherEntity.getId();
+    }
+
+    getId(): string {
+        return this.id.getId();
     }
 }
