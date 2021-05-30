@@ -14,4 +14,8 @@ export class Money extends ValueObject {
     isGreaterOrEqualsThan(money: Money): boolean {
         return this.amount > money.amount;
     }
+
+    retrieveAmount() {
+        return this.amount;
+    }
 }

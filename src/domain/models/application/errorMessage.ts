@@ -1,4 +1,4 @@
 export enum ErrorMessage {
     cartEmpty='Cart appears to be empty',
-    unknownError='Unknown error'
+    notEnoughMoney='Not enough money to buy product',
 }

@@ -15,14 +15,11 @@ describe('TU: retrieveMostExpensive', () => {
         // Arrange
         const vault = vaultService.retrieveVault();
 
-        try {
-            // Act
-            await retriever.execute(vault);
-            fail();
-        } catch (e) {
-            // Assert
-            expect(e.message).toEqual(ErrorMessage.cartEmpty);
-        }
+        // Act
+        const message = await retriever.execute(vault);
+
+        // Assert
+        expect(message).toEqual(ErrorMessage.cartEmpty);
     });
 
     test('Pour un panier contenant un seul article, celui-ci est retourné', async () => {

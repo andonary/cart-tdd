@@ -24,4 +24,8 @@ export class Product extends Aggregate<Product> {
     retrieveName() {
         return this.name;
     }
+
+    retrievePrice() {
+        return this.price.retrieveAmount();
+    }
 }

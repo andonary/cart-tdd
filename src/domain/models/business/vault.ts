@@ -19,4 +19,8 @@ export class Vault extends Aggregate<Product[]> {
         });
         return _vault[0];
     }
+
+    store(product: Product) {
+        this.listProducts.push(product);
+    }
 }
