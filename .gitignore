@@ -110,3 +110,6 @@ logs
 .DS_Store
 
 npm-debug.log*
+reports
+coverage
+.stryker-tmp
