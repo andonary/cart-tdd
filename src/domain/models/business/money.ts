@@ -15,7 +15,7 @@ export class Money extends ValueObject {
         return this.amount > money.amount;
     }
 
-    retrieveAmount() {
+    retrieveAmount(): number {
         return this.amount;
     }
 }

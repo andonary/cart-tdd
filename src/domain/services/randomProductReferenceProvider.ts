@@ -1,7 +1,7 @@
 export class RandomProductReferenceProvider {
     private unique: number = null;
 
-    nextUnique() {
+    nextUnique(): void {
         if (this.unique === null) this.unique = 0;
         else this.unique++;
     }

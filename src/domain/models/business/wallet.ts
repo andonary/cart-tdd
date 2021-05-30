@@ -5,11 +5,11 @@ export class Wallet {
         this.balance = wallet.balance;
     }
 
-    retrieveBalance() {
+    retrieveBalance(): number {
         return this.balance;
     }
 
-    spend(amount: number) {
+    spend(amount: number): void {
         this.balance -= amount;
     }
 }

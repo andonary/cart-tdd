@@ -6,9 +6,9 @@ export class GenerateUniqueProductUseCase {
     constructor(private productReferenceRepository: Repository<ProductReference>) {
     }
 
-    async execute(product?: {name: string}) {
+    async execute(product?: {name: string}): Promise<Product> {
         let _product = product
         if (!_product) _product = await this.productReferenceRepository.retrieveOne();
-        return new Product(_product);
+        return Promise.resolve(new Product(_product));
     }
 }

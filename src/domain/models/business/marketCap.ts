@@ -7,11 +7,11 @@ export class MarketCap {
         this.listProduct = products;
     }
 
-    retrieveAllProduct() {
+    retrieveAllProduct(): Product[] {
         return this.listProduct;
     }
 
-    remove(product: Product) {
+    remove(product: Product): void {
         const productIndex = this.listProduct.findIndex(p => p.equals(product));
         this.listProduct.splice(productIndex, 1);
     }

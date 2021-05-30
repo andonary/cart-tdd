@@ -11,7 +11,7 @@ export class VaultService {
         return _newProduct;
     }
 
-    fillVault() {
+    fillVault(): void {
         this.vault = new Vault(this.listProduct);
     }
 

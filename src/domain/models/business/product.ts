@@ -21,11 +21,11 @@ export class Product extends Aggregate<Product> {
         return this.price.isGreaterOrEqualsThan(product.price);
     }
 
-    retrieveName() {
+    retrieveName(): string {
         return this.name;
     }
 
-    retrievePrice() {
+    retrievePrice(): number {
         return this.price.retrieveAmount();
     }
 }
