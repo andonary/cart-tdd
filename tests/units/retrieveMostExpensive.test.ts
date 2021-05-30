@@ -6,9 +6,17 @@ describe('TU: retrieveMostExpensive', () => {
     let retriever: RetrieveMostExpensiveUseCase;
     let vaultService: VaultService;
 
-    beforeEach(() => {
+    const resetStates = () => {
         retriever = new RetrieveMostExpensiveUseCase();
         vaultService = new VaultService();
+    }
+
+    beforeAll(() => {
+        resetStates();
+    });
+
+    afterEach(() => {
+       resetStates();
     });
 
     test('Pour un panier vide, je suis averti que cela ne marche pas', async () => {

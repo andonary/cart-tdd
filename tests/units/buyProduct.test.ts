@@ -12,12 +12,20 @@ describe('TU: buy product', () => {
     let buyProductUseCase: BuyProductUseCase;
     let marketCap: MarketCap;
 
-    beforeEach(() => {
+    const resetStates = () => {
         wallet = null;
         vault = new Vault();
         product = null;
         marketCap = new MarketCap([]);
         buyProductUseCase = new BuyProductUseCase();
+    }
+
+    beforeAll(() => {
+        resetStates();
+    });
+
+    afterEach(() => {
+        resetStates();
     });
 
     const buyProduct = () => {

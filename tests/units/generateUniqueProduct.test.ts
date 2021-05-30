@@ -9,10 +9,18 @@ describe('TU: generate unique product', () => {
     let repository: InMemoryProductReferenceRepository;
     let randomProvider: RandomProductReferenceProvider;
 
-    beforeEach(() => {
+    const resetStates = () => {
         randomProvider = new RandomProductReferenceProvider()
         repository = new InMemoryProductReferenceRepository(randomProvider);
         generator = new GenerateUniqueProductUseCase(repository);
+    }
+
+    beforeAll(() => {
+        resetStates();
+    })
+
+    afterEach(() => {
+        resetStates();
     });
 
     test('Lorsque je génère un produit gameboy, celui-ci existe et porte le nom gameboy', async () => {
