@@ -1,5 +1,6 @@
 import {Money} from "./money";
 import {Aggregate} from "../tactic/aggregate";
+import {RandomPriceChange} from "../../services/randomPriceChange";
 
 interface ProductProps {
     id: string;
@@ -8,8 +9,8 @@ interface ProductProps {
 }
 
 export class Product extends Aggregate<Product> {
-    readonly name: string;
-    readonly price: Money;
+    private readonly name: string;
+    private price: Money;
 
     constructor(newProduct: Partial<ProductProps>) {
         super(newProduct.id);
@@ -27,5 +28,11 @@ export class Product extends Aggregate<Product> {
 
     retrievePrice(): number {
         return this.price.retrieveAmount();
+    }
+
+    priceChange() {
+        const randomPriceValue = RandomPriceChange.getInstance();
+        const price = new Money(this.price.retrieveAmount() + randomPriceValue.getRandomValue());
+        if (price.retrieveAmount() > 0) this.price = price;
     }
 }

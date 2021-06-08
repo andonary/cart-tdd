@@ -1,16 +1,16 @@
 import {Product} from "../../src/domain/models/business/product";
 import {GenerateUniqueProductUseCase} from "../../src/domain/useCase/generateUniqueProduct.useCase";
 import {InMemoryProductReferenceRepository} from "../../src/infra/repository/inMemoryProductReferenceRepository";
-import {RandomProductReferenceProvider} from "../../src/domain/services/randomProductReferenceProvider";
+import {RandomProvider} from "../../src/domain/services/randomProvider";
 import {ProductReference} from "../../src/domain/models/business/productReference";
 
 describe('TU: generate unique product', () => {
     let generator: GenerateUniqueProductUseCase;
     let repository: InMemoryProductReferenceRepository;
-    let randomProvider: RandomProductReferenceProvider;
+    let randomProvider: RandomProvider;
 
     const resetStates = () => {
-        randomProvider = new RandomProductReferenceProvider()
+        randomProvider = new RandomProvider()
         repository = new InMemoryProductReferenceRepository(randomProvider);
         generator = new GenerateUniqueProductUseCase(repository);
     }

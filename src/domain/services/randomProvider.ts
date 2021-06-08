@@ -1,4 +1,4 @@
-export class RandomProductReferenceProvider {
+export class RandomProvider {
     private unique: number = null;
 
     nextUnique(): void {
@@ -6,8 +6,8 @@ export class RandomProductReferenceProvider {
         else this.unique++;
     }
 
-    generate(max: number): number {
+    generate(max: number, min = 0): number {
         if (this.unique !== null) return this.unique;
-        return Math.floor(Math.random() * max);
+        return Math.floor(Math.random() * max) + min;
     }
 }

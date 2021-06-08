@@ -1,12 +1,12 @@
-import {RandomProductReferenceProvider} from "../../domain/services/randomProductReferenceProvider";
+import {RandomProvider} from "../../domain/services/randomProvider";
 import {Repository} from "../../domain/ports/repository";
 import {ProductReference} from "../../domain/models/business/productReference";
 
 export class InMemoryProductReferenceRepository implements Repository<ProductReference> {
     private listProductReference: ProductReference[];
-    private randomCalculator: RandomProductReferenceProvider;
+    private randomCalculator: RandomProvider;
 
-    constructor(randomProductReferenceProvider: RandomProductReferenceProvider) {
+    constructor(randomProductReferenceProvider: RandomProvider) {
         this.randomCalculator = randomProductReferenceProvider;
     }
 
