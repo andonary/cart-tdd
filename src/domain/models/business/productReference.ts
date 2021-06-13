@@ -1,14 +1,14 @@
 import {Aggregate} from "../tactic/aggregate";
 
 interface ProductReferenceProps {
-    id: string;
+    id?: string;
     name: string;
 }
 
 export class ProductReference extends Aggregate<ProductReference> {
-    readonly name: string;
+    readonly name: string | undefined;
 
-    constructor(newProduct: Partial<ProductReferenceProps>) {
+    constructor(newProduct: ProductReferenceProps) {
         super(newProduct.id);
         this.name = newProduct.name;
     }

@@ -1,8 +1,8 @@
-import {Product} from "../../src/domain/models/business/product";
-import {GenerateUniqueProductUseCase} from "../../src/domain/useCase/generateUniqueProduct.useCase";
-import {InMemoryProductReferenceRepository} from "../../src/infra/repository/inMemoryProductReferenceRepository";
-import {RandomProvider} from "../../src/domain/services/randomProvider";
-import {ProductReference} from "../../src/domain/models/business/productReference";
+import {Product} from "../../domain/models/business/product";
+import {GenerateUniqueProductUseCase} from "../../domain/useCase/generateUniqueProduct.useCase";
+import {InMemoryProductReferenceRepository} from "../../infra/repository/inMemoryProductReferenceRepository";
+import {RandomProvider} from "../../domain/services/randomProvider";
+import {ProductReference} from "../../domain/models/business/productReference";
 
 describe('TU: generate unique product', () => {
     let generator: GenerateUniqueProductUseCase;

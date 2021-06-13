@@ -3,16 +3,16 @@ import {Aggregate} from "../tactic/aggregate";
 import {RandomPriceChange} from "../../services/randomPriceChange";
 
 interface ProductProps {
-    id: string;
+    id?: string;
     name: string;
     price: number;
 }
 
 export class Product extends Aggregate<Product> {
-    private readonly name: string;
+    private readonly name: string | undefined;
     private price: Money;
 
-    constructor(newProduct: Partial<ProductProps>) {
+    constructor(newProduct: ProductProps) {
         super(newProduct.id);
         this.name = newProduct.name;
         this.price = new Money(newProduct.price);
@@ -23,7 +23,7 @@ export class Product extends Aggregate<Product> {
     }
 
     retrieveName(): string {
-        return this.name;
+        return this.name || '';
     }
 
     retrievePrice(): number {
