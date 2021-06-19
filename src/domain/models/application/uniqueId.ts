@@ -4,7 +4,11 @@ import {ValueObject} from "../tactic/valueObject";
 export class UniqueId extends ValueObject {
     constructor(id?: string) {
         super();
-        this.value = id || uuidv4();
+        if (id && typeof id === 'string') {
+            this.value = id;
+        } else {
+            this.value = uuidv4();
+        }
     }
 
     getValue(): any {

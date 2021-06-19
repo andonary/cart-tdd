@@ -7,7 +7,7 @@ export class GenerateUniqueProductUseCase {
     }
 
     async execute(product?: {name: string}): Promise<Product> {
-        let _product: any = product;
+        let _product = product
         if (!_product) _product = await this.productReferenceRepository.retrieveOne();
         return Promise.resolve(new Product(_product));
     }

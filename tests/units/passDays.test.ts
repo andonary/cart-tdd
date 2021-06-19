@@ -1,7 +1,7 @@
-import {Product} from "../../domain/models/business/product";
-import {Vault} from "../../domain/models/business/vault";
-import {PassDayUseCase} from "../../domain/useCase/passDayUseCase";
-import {RandomPriceChange} from "../../domain/services/randomPriceChange";
+import {Product} from "../../src/domain/models/business/product";
+import {Vault} from "../../src/domain/models/business/vault";
+import {PassDayUseCase} from "../../src/domain/useCase/passDayUseCase";
+import {RandomPriceChange} from "../../src/domain/services/randomPriceChange";
 
 describe('TU: passing days', () => {
     let vault: Vault;
@@ -20,19 +20,19 @@ describe('TU: passing days', () => {
         passDay = new PassDayUseCase();
     });
 
-    const getPriceOfMyCollector = (priceToFixed: number) => {
+    const getPriceOfMyCollector = (priceToFixed) => {
         collectorMetalGearSolid = new Product({name: 'collector mgs', price: priceToFixed});
         vault.store(collectorMetalGearSolid);
         return collectorMetalGearSolid.retrievePrice();
     };
 
-    const setRandomVariation = (randomVariation?: number): number => {
+    const setRandomVariation = (randomVariation?) => {
         const singleton = RandomPriceChange.getInstance();
         if (randomVariation) {
             singleton.setRandomVariation(randomVariation);
             return randomVariation;
         }
-        return RandomPriceChange.variation ?? NaN;
+        return RandomPriceChange.variation;
     };
 
     const setRandomVariationUnique = () => {
@@ -40,7 +40,7 @@ describe('TU: passing days', () => {
         singleton.setVariationUnique();
     };
 
-    const passingDay = (number: number) => passDay.execute(vault, number);
+    const passingDay = (number) => passDay.execute(vault, number);
 
     test('Un produit présent dans mon coffre jour 1 valant 300, son prix reste à 300 jour 1', async () => {
         // Arrange

@@ -1,5 +1,5 @@
 export class RandomProvider {
-    private unique: number | null = null;
+    private unique: number = null;
 
     nextUnique(): void {
         if (this.unique === null) this.unique = 0;

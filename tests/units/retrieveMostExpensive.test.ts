@@ -1,6 +1,6 @@
-import {RetrieveMostExpensiveUseCase} from "../../domain/useCase/retrieveMostExpensive.useCase";
-import {ErrorMessage} from "../../domain/models/application/errorMessage";
-import {VaultService} from "../../domain/services/vaultService";
+import {RetrieveMostExpensiveUseCase} from "../../src/domain/useCase/retrieveMostExpensive.useCase";
+import {ErrorMessage} from "../../src/domain/models/application/errorMessage";
+import {VaultService} from "../../src/domain/services/vaultService";
 
 describe('TU: retrieveMostExpensive', () => {
     let retriever: RetrieveMostExpensiveUseCase;
