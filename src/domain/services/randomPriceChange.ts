@@ -1,23 +1,23 @@
 import {RandomProvider} from "./randomProvider";
 
 export class RandomPriceChange {
-    private static instance: RandomPriceChange;
-    public static variation: number;
+    private static instance: RandomPriceChange | null;
+    public static variation: number | null;
     private isUniqueVariation: boolean;
 
     private constructor() {
     }
 
-    public getRandomValue() {
+    public getRandomValue(): number {
         if (!RandomPriceChange.variation) {
             this.setRandomVariation();
         }
         const variation = RandomPriceChange.variation;
         if (!this.isUniqueVariation) RandomPriceChange.variation = null;
-        return variation;
+        return variation || NaN;
     }
 
-    public static getInstance() {
+    public static getInstance(): RandomPriceChange {
         if (!RandomPriceChange.instance) {
             RandomPriceChange.instance = new RandomPriceChange();
         }

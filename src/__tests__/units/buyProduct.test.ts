@@ -1,9 +1,9 @@
-import {Vault} from "../../src/domain/models/business/vault";
-import {Product} from "../../src/domain/models/business/product";
-import {BuyProductUseCase} from "../../src/domain/useCase/buyProduct.useCase";
-import {Wallet} from "../../src/domain/models/business/wallet";
-import {ErrorMessage} from "../../src/domain/models/application/errorMessage";
-import {MarketCap} from "../../src/domain/models/business/marketCap";
+import {Vault} from "../../domain/models/business/vault";
+import {Product} from "../../domain/models/business/product";
+import {BuyProductUseCase} from "../../domain/useCase/buyProduct.useCase";
+import {Wallet} from "../../domain/models/business/wallet";
+import {ErrorMessage} from "../../domain/models/application/errorMessage";
+import {MarketCap} from "../../domain/models/business/marketCap";
 
 describe('TU: buy product', () => {
     let wallet: Wallet;
@@ -13,9 +13,9 @@ describe('TU: buy product', () => {
     let marketCap: MarketCap;
 
     const resetStates = () => {
-        wallet = null;
+        wallet = new Wallet({balance: NaN});
+        product = new Product({name: '', price: NaN});
         vault = new Vault();
-        product = null;
         marketCap = new MarketCap([]);
         buyProductUseCase = new BuyProductUseCase();
     }
